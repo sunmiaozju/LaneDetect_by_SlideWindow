@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="Definition.xsd">
+  <Document/>
+  <Bus name="Mainbus">
+    <Message id="0x120" length="8" name="can_message">
+      <Signal name="SCU_ShiftLevel_Req"         offset="0"  length="2"/>
+      <Signal name="SCU_ACC_Mode"               offset="2"  length="2" />
+      <Signal name="SCU_Brake_Mode"             offset="4"  length="2" />
+      <Signal name="SCU_Drive_Mode_Req"         offset="6"  length="2" />
+      <Signal name="SCU_Steering_Wheel_Angle"   offset="8"  length="16" >
+        <Value type="signed"/>
+      </Signal>
+      <Signal name="SCU_Target_Speed"           offset="24"  length="9"/>
+      <Signal name="SCU_Ebrake"                 offset="33" length="1" />
+      <Signal name="SCU_Gradient"               offset="34" length="6" />
+      <Signal name="SCU_Reserved"               offset="40" length="24" />
+
+   
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+    </Message>
+  </Bus>
+</NetworkDefinition>

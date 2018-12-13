@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="Definition.xsd">
+  <Document/>
+  <Bus name="Mainbus">
+    <Message id="0x51" length="8" name="can_message_recv">
+      <Signal name="CCU_ShiftLevel_Sts"         offset="0"  length="2"/>
+      <Signal name="CCU_P_Sts"                  offset="2"  length="1" />
+      <Signal name="CCU_Ignition_Sts"           offset="3"  length="2" />
+      <Signal name="Reserved"                   offset="5"  length="2" />
+      <Signal name="Steering_Wheel_Direction"   offset="7"  length="1" />
+      <Signal name="CCU_Steering_Wheel_Angle"   offset="8"  length="12"/>
+      <Signal name="CCU_Vehicle_Speed"          offset="20" length="9" >
+        <Value type="unsigned"/>
+      </Signal>
+      <Signal name="CCU_Drive_Mode"             offset="29" length="3" />
+      <Signal name="CCU_ACC_Level"              offset="32" length="2" />
+      <Signal name="CCU_Brake_Level"            offset="34" length="2" />
+      <Signal name="Total_Odometer"             offset="36" length="20" />
+      <Signal name="Left_Turn_Light_Sts"        offset="56" length="1" /> 
+      <Signal name="Right_Turn_Light_Sts"       offset="57" length="1" />
+      <Signal name="Hazard_Light_Sts"           offset="58" length="1" />
+      <Signal name="Position_Light_Sts"         offset="59" length="1" />
+      <Signal name="LowBeam_Sts"                offset="60" length="1" />
+      <Signal name="HighBeam_Sts"               offset="61" length="1" />
+      <Signal name="RearFog_Sts"                offset="62" length="1" />
+      <Signal name="Horn_Sts"                   offset="63" length="1" />
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+    </Message>
+  </Bus>
+</NetworkDefinition>

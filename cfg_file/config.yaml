@@ -1,0 +1,55 @@
+socket:
+  port: 4567
+
+vision:
+  img_h: 240
+  img_w: 320
+  scale:
+    y_dis: 10.8
+    y_pix: 240
+    x_dis: 3.5
+    x_pix: 120
+  img_source:
+    top_line: 200
+    bottom_line: 1200
+    height: 130
+  img_destination:
+    width: 320
+    height: 240
+  model:
+    checkpoint_state: "../cfg_file/model/"
+    meta_graph: "../cfg_file/model/model.ckpt.meta"
+    output_tensor: "ENet/logits_to_softmax:0"
+    input_tensor: "inputs_gate:0"
+  bound_point_num: 5
+  lane_finder:
+    window_shape_h: 20
+    window_shape_w: 61
+    search_margin: 200
+    max_frozen_dur: 15
+fuzzy_convert:
+  angle_step: 5.0
+  distance_step: 15
+  cte_step: 0.5
+control:
+  kp: 12
+  ki: 5
+  kd: 0
+  limited_speed: 0.5
+  throttle: 0.8
+  original_gear: "D"
+log_file:
+  dir_path: "/ssd/data/output/lane_detection/"
+camera:
+  front_center:
+    ost_path: "../cfg_file/calibration/LogitechC310/640_480/ost.yaml"
+    lanedetect: "CAMERA_MONITOR_dev_video1"
+  front_low:
+    lanedetect: ""
+    apriltags2: ""
+  back_low:
+    lanedetect: ""
+    apriltags2: ""
+replay:
+  file_path: "../cfg_file/replay_dataset.csv"
+
